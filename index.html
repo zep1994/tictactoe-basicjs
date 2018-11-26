@@ -2,7 +2,30 @@
 
   <head>
     <style>
+      .board {
+        display: flex;
+        width: 600px;
+        height: 600px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
 
+      .square {
+        height: 200px;
+        width: 200px;
+        box-sizing: border-box;
+        border: 5px solid black;
+        font-size: 5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .square:hover {
+        cursor: pointer;
+        background-color: #00cd92;
+      }
     </style>
 
   </head>
@@ -19,8 +42,19 @@
         <div class="square"></div>
         <div class="square"></div>
       </div>
-    <script type="text/javascript">
 
+
+    <script type="text/javascript">
+        var PLAYER_ONE_SYMBOL = 'X'
+        var PLAYER_TWO_SYMBOL = 'O'
+        var currentTurn = PLAYER_ONE_SYMBOL
+
+        var board = document.querySelector('.board')
+        board.addEventListener('click', function(e) {
+          e.target.innerHTML = currentTurn
+          currentTurn = currentTurn === PLAYER_ONE_SYMBOL ? PLAYER_TWO_SYMBOL : PLAYER_ONE_SYMBOL
+
+        })
     </script>
   </body>
 
